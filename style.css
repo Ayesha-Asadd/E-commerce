@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+:root {
+    --primary: #333446;      /* Dark Charcoal Blue */
+    --primary-dark: #2a2b33; /* Slightly darker for hover */
+    --accent: #7F8CAA;       /* Muted Blue */
+    --accent-light: #B8CFCE; /* Soft Teal */
+    --background: #EAEFEF;   /* Light Gray */
+    --card-bg: #ffffff;
+    --text-dark: #333446;
+    --text-muted: #7F8CAA;
+    --text-light: #ffffff;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--background);
+    color: var(--text-dark);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Header */
+header {
+    background: var(--primary);
+    color: var(--text-light);
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Navigation Buttons */
+nav button {
+
+    color: var(--text-light);
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: 0.2s;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+#view-cart-btn {
+    position: relative;
+}
+#cart-count {
+    background-color: var(--accent-light);
+    color: var(--text-dark);
+}
+
+/* Product List */
+.product-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Premium Product Card Style */
+.product-card {
+    background-color: var(--card-bg);
+    border-radius: 1rem;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--accent-light);
+    box-shadow: 0 4px 12px rgba(127, 140, 170, 0.15);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s;
+}
+.product-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 20px rgba(51, 52, 70, 0.25);
+    border-color: var(--accent);
+}
+.product-card img {
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 1px solid var(--accent-light);
+}
+.product-card h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 1rem 0 0.5rem;
+    padding: 0 1rem;
+    color: var(--primary);
+}
+.product-card p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    padding: 0 1rem;
+    flex-grow: 1;
+}
+.product-card .price {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin: 0.5rem 0;
+}
+.product-card button {
+    background-color: var(--primary);
+    color: var(--text-light);
+    padding: 0.75rem;
+    font-weight: 600;
+    transition: 0.2s;
+    border: none;
+    cursor: pointer;
+}
+.product-card button:hover {
+    background-color: var(--primary-dark);
+}
+
+/* Overlay Form for Add/Edit */
+.overlay-form {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items: center;
+}
+.overlay-form.active {
+    display: flex;
+}
+.overlay-form-content {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 1rem;
+    width: 95%;
+    max-width: 500px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    animation: slideUp 0.3s ease;
+}
+.overlay-form h2 {
+    margin-top: 0;
+    color: var(--primary);
+}
+.overlay-form input, 
+.overlay-form textarea, 
+.overlay-form select {
+    padding: 0.6rem;
+    border: 1px solid var(--accent-light);
+    border-radius: 0.5rem;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+.overlay-form .form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+}
+.overlay-form .save-btn {
+    background-color: var(--primary);
+    color: var(--text-light);
+}
+.overlay-form .save-btn:hover {
+    background-color: var(--primary-dark);
+}
+.overlay-form .cancel-btn {
+    background-color: var(--accent);
+    color: var(--text-light);
+}
+.overlay-form .cancel-btn:hover {
+    background-color: var(--primary-dark);
+    color: var(--text-light);
+}
+
+/* Smooth Animation */
+@keyframes slideUp {
+    from { transform: translateY(40px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}

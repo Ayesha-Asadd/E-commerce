@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My E-Commerce App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+   <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1 class="text-3xl font-bold ">My Awesome Store</h1>
+        <nav class="space-x-4">
+            <button id="view-products-btn">Products</button>
+            <button id="view-cart-btn" class="relative">
+                Cart
+                <span id="cart-count" class="absolute top-0 right-0 -mt-2 -mr-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">0</span>
+            </button>
+            <button id="view-admin-btn">Admin</button>
+        </nav>
+    </header>
+
+    <main id="app-container" class="container mx-auto px-4 mt-8">
+        <p>Loading application...</p>
+    </main>
+
+    <!-- Custom Modal for alerts and confirmations -->
+    <div id="custom-modal" class="modal">
+        <div class="modal-content">
+            <h3 id="modal-title"></h3>
+            <p id="modal-message"></p>
+            <div class="modal-buttons">
+                <button id="modal-confirm" class="confirm-btn">OK</button>
+                <button id="modal-cancel" class="cancel-btn" style="display: none;">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+    <script src="products.js"></script>
+</body>
+</html>
