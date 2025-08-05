@@ -3,40 +3,163 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My E-Commerce App</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-   <link rel="stylesheet" href="style.css">
+    <title>The Royal Emporium</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
+
     <header>
-        <h1 class="text-3xl font-bold ">My Awesome Store</h1>
-        <nav class="space-x-4">
-            <button id="view-products-btn">Products</button>
-            <button id="view-cart-btn" class="relative">
-                Cart
-                <span id="cart-count" class="absolute top-0 right-0 -mt-2 -mr-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">0</span>
-            </button>
-            <button id="view-admin-btn">Admin</button>
+        <nav class="top-nav">
+            <div class="logo">The Royal Emporium</div>
+            <ul class="nav-links">
+                <li><a href="#our-story">Our Story</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#" id="cart-icon"><i class="fas fa-shopping-cart"></i> <span id="cart-count">0</span></a></li>
+                <li><a href="#" id="admin-login-link">Admin</a></li>
+            </ul>
         </nav>
     </header>
 
-    <main id="app-container" class="container mx-auto px-4 mt-8">
-        <p>Loading application...</p>
+    <main>
+        <div class="hero-section">
+            <div class="hero-content">
+                <h1>Crafted with Heritage</h1>
+                <p>Curating Elegance for Your Royal Decent Vibe</p>
+            </div>
+        </div>
+
+        <section id="best-seller" class="best-seller-section">
+            <div class="best-seller-main-image">
+                <img src="https://images.squarespace-cdn.com/content/v1/624b503a3a6154640a151782/1649102925263-M6H1DEHSYQSYQPO2JQG3/Florist0177.jpg?format=2500w" alt="Best Seller Main Image">
+            </div>
+            <div class="best-seller-content">
+                <h2 class="section-title">Our Best Seller</h2>
+                <p>A timeless piece, hand-selected for its exceptional quality and enduring beauty.<br> This is a favorite among our patrons, a true embodiment of the royal essence.</p>
+                <div class="best-seller-grid" id="best-seller-container"></div>
+            </div>
+        </section>
+
+        <section id="products" class="product-section">
+            <h2 class="section-title">Our Products</h2>
+            <div class="product-grid" id="product-container"></div>
+        </section>
+
+        <section id="our-story" class="info-section">
+            <div class="story-content">
+                <h2 class="section-title">Our Story</h2>
+                <p>
+                    Founded on the principles of timeless elegance and craftsmanship, The Royal Emporium is a destination for those who seek to imbue their lives with a touch of majesty. Each piece in our collection is meticulously chosen to reflect a heritage of quality and style, providing you with items that are not just products, but heirlooms in the making.
+                </p>
+            </div>
+            <div class="story-image">
+                <img src="https://images.squarespace-cdn.com/content/v1/624b503a3a6154640a151782/1649102907942-HE0XDP6XDB3WRUCEC8JZ/Florist0111.jpg?format=2500w" alt="Our Story">
+            </div>
+        </section>
+
+        <section id="testimonials" class="testimonials-section">
+            <h2 class="section-title">Testimonials</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p>"The quality is unmatched. Every item feels like a piece of history."</p>
+                    <cite>- Lady Eleanor</cite>
+                </div>
+                <div class="testimonial-card">
+                    <p>"A wonderful selection of unique and beautiful products. I am a lifelong customer!"</p>
+                    <cite>- Lord Alistair</cite>
+                </div>
+                <div class="testimonial-card">
+                    <p>"Exquisite craftsmanship and a truly decent vibe. The perfect addition to any home."</p>
+                    <cite>- Duchess Isabella</cite>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <!-- Custom Modal for alerts and confirmations -->
-    <div id="custom-modal" class="modal">
+    <footer>
+        <p>&copy; 2025 The Royal Emporium. All rights reserved.</p>
+    </footer>
+
+    <div id="add-to-cart-modal" class="modal">
         <div class="modal-content">
-            <h3 id="modal-title"></h3>
-            <p id="modal-message"></p>
-            <div class="modal-buttons">
-                <button id="modal-confirm" class="confirm-btn">OK</button>
-                <button id="modal-cancel" class="cancel-btn" style="display: none;">Cancel</button>
+            <span class="close-btn">&times;</span>
+            <div id="modal-product-details"></div>
+            <div class="cart-controls">
+                <div class="quantity-control">
+                    <button id="decrement-quantity">-</button>
+                    <input type="number" id="modal-quantity" value="1" min="1">
+                    <button id="increment-quantity">+</button>
+                </div>
+                <button id="modal-add-to-cart-btn">Add to Cart</button>
             </div>
         </div>
     </div>
 
-    <script src="app.js"></script>
-    <script src="products.js"></script>
+    <div id="cart-overlay" class="overlay">
+        <div class="cart-sidebar">
+            <button id="close-cart-btn">&times;</button>
+            <h3>Your Cart</h3>
+            <div id="cart-items"></div>
+            <div class="cart-summary">
+                <p>Total: $<span id="cart-total">0.00</span></p>
+                <button id="checkout-button">Checkout</button>
+            </div>
+        </div>
+        <div id="order-confirm-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <div class="modal-body">
+            <h3 class="modal-title">Order Placed Successfully!</h3>
+            <p>Thank you for your purchase. We hope you enjoy your flowers!</p>
+        </div>
+        <div class="modal-actions">
+            <button id="ok-btn" class="primary-btn">OK</button>
+        </div>
+    </div>
+</div>
+    </div>
+
+    <div id="admin-panel" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <div id="admin-login">
+                <h3>Admin Login</h3>
+                <form id="admin-login-form">
+                    <input type="text" id="admin-username" placeholder="Username" required>
+                    <input type="password" id="admin-password" placeholder="Password" required>
+                    <button type="submit">Login</button>
+                </form>
+            </div>
+            <h2>Admin Dashboard</h2>
+<div id="admin-controls">
+    <button id="download-products-btn" class="primary-btn">Download Products as JSON</button>
+</div>
+            <div id="admin-content" style="display: none;">
+                <h3>Manage Products</h3>
+                <form id="add-product-form">
+                    <input type="text" id="product-name-input" placeholder="Product Name" required>
+                    <input type="number" id="product-price-input" placeholder="Price" required>
+                    <input type="text" id="product-image-input" placeholder="Image URL" required>
+                    <input type="text" id="product-variants-input" placeholder="Variants (e.g., Red,Green,Blue)">
+                    <button type="submit">Add Product</button>
+                </form>
+                <div id="product-list-admin"></div>
+            </div>
+        </div>
+    </div>
+<div id="delete-confirm-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <h3 id="delete-modal-title">Delete Product</h3>
+        <p>Are you sure you want to delete this product?</p>
+        <div class="modal-actions">
+            <button id="cancel-delete-btn" class="secondary-btn">Cancel</button>
+            <button id="confirm-delete-btn" class="delete-btn">Delete</button>
+        </div>
+    </div>
+</div>
+
+    <script src="script.js"></script>
+    
 </body>
 </html>
