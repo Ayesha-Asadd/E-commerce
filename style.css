@@ -151,12 +151,27 @@ body {
     background-image: url('https://images.squarespace-cdn.com/content/v1/624b503a3a6154640a151782/1649102907926-3JUPDIKQFJOCVP7GPMBA/Florist0487.jpg');
     background-size: cover;
     background-position: center;
-    height: 60vh;
+    height: 90vh; /* Increased from 60vh or 80vh to 90vh */
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     color: #f7f3e9;
+    position: relative; /* Needed for overlay positioning */
+}
+
+.hero-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(61, 52, 47, 0.45); /* Dark brown with 45% opacity */
+    z-index: 1;
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
 }
 
 .hero-content h1 {
@@ -509,12 +524,27 @@ body {
     background-image: url('https://images.squarespace-cdn.com/content/v1/624b503a3a6154640a151782/1649102907926-3JUPDIKQFJOCVP7GPMBA/Florist0487.jpg');
     background-size: cover;
     background-position: center;
-    height: 60vh;
+    height: 90vh; /* Increased from 60vh or 80vh to 90vh */
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     color: #f7f3e9;
+    position: relative; /* Needed for overlay positioning */
+}
+
+.hero-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(61, 52, 47, 0.45); /* Dark brown with 45% opacity */
+    z-index: 1;
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
 }
 
 .hero-content h1 {
@@ -725,17 +755,29 @@ footer {
 
 .modal-content {
     background-color: #fefefe;
+    margin: 15% auto;
+    padding: 2rem;
+    border: 1px solid #888;
+    width: 100%;
+    max-width: 500px;
+    position: relative;
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+}
+.modal-content {
+    background-color: #fefefe;
     padding: 2rem;
     border-radius: 10px;
     width: 90%;
-    max-width: 700px;
+    max-width: 700px; /* Adjusted to a broader max-width */
     position: relative;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    animation-name: animatetop;
+    animation-name: animatetop; /* Assuming you have this animation */
     animation-duration: 0.4s;
+    /* Added flexbox for internal layout control */
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1.5rem; /* Consistent spacing between sections */
 }
 
 .close-btn {
