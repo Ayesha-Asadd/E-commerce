@@ -1,48 +1,104 @@
 document.addEventListener('DOMContentLoaded', () => {
+// --- Product Data ---
+let products = [
+    {
+        id: 1,
+        name: "Royal Rose Bouquet",
+        price: 250.00,
+        image: "https://images.squarespace-cdn.com/content/v1/624b503a3a6154640a151782/1649102925238-QNHQ6YQJCBM14R6D5KXB/Florist0173.jpg?format=1500w",
+        variants: ["Crimson Red", "Deep Pink", "White Roses"],
+        category: "best-seller"
+    },
+    {
+        id: 2,
+        name: "Hand-Tied Wildflower Bunch",
+        price: 75.00,
+        image: "https://highlandmoss.com/wp-content/uploads/2025/02/rustic-dried-bouquet.jpg",
+        variants: ["Spring Mix", "Pastel Shades"],
+        category: "best-seller"
+    },
+    {
+        id: 3,
+        name: "Golden Sunflower Bouquet",
+        price: 120.00,
+        image: "https://heartthorn.com/cdn/shop/products/EternalSunshineSunflowerBouquet2.jpg?v=1631295500",
+        variants: [],
+        category: "best-seller"
+    },
+    {
+        id: 4,
+        name: "Silk Orchid Arrangement",
+        price: 95.00,
+        image: "https://images.squarespace-cdn.com/content/v1/624b503a3a6154640a151782/1649102925253-KFJ38D7HG4B29XFG0WFC/Florist0213%281%29.jpg?format=1500w",
+        variants: ["Ivory White", "Royal Purple"],
+        category: "all"
+    },
+    {
+        id: 5,
+        name: "Silver Lily Bouquet",
+        price: 150.00,
+        image: "https://thebridesbouquet.co.uk/wp-content/uploads/2022/01/artificial-silver-grey-bridesmaid-boquuet-with-lily-of-the-valley-and-calla-lilies.jpg",
+        variants: [],
+        category: "all"
+    },
+    {
+        id: 6,
+        name: "Velvet Peony Posy",
+        price: 45.00,
+        image: "https://flowers.ie/cdn/shop/files/LuxuryPeonyVase-Std_41ce44cc-6174-4a1b-88c8-a136b1238db3.png?v=1747156586",
+        variants: ["Pink Blush", "Coral Sunset"],
+        category: "all"
+    },
+    {
+        id: 7,
+        name: "Rustic Lavender Bunch",
+        price: 85.00,
+        image: "https://m.media-amazon.com/images/I/71MdRx0ISpL._UF894,1000_QL80_.jpg",
+        variants: [],
+        category: "all"
+    },
+    {
+        id: 8,
+        name: "Blue Hydrangea Bouquet",
+        price: 180.00,
+        image: "https://cdn.uaeflowers.com/uploads/product/uaeflowers/8387_16_8387.webp",
+        variants: [],
+        category: "all"
+    },
+    {
+        id: 9,
+        name: "Golden Marigold Basket",
+        price: 60.00,
+        image: "https://www.petitefleurid.com/cdn/shop/files/1_orange8.jpg?v=1722583941&width=960",
+        variants: [],
+        category: "all"
+    },
+    {
+        id: 10,
+        name: "Imperial Orchid & Lily Mix",
+        price: 300.00,
+        image: "https://cdn.igp.com/f_auto,q_auto,t_pnopt6prodlp/products/p-blushing-lilies-420062-m.jpg",
+        variants: ["Ceramic Pot", "Glass Vase"],
+        category: "all"
+    },
+    {
+        id: 11,
+        name: "Majestic Tulip Vase",
+        price: 110.00,
+        image: "https://www.juneflowers.com/wp-content/uploads/2022/09/Pink-Tulips.jpg",
+        variants: [],
+        category: "all"
+    },
+    {
+        id: 12,
+        name: "Royal Garden Basket",
+        price: 450.00,
+        image: "https://res.cloudinary.com/interflora/f_auto,q_auto,t_pnopt19prodlp/products/p-a-walk-in-the-garden-basket-301246-m.jpg",
+        variants: [],
+        category: "all"
+    },
+];
 
-    // --- Product Data ---
-    let products = [
-        {
-            id: 1,
-            name: "Royal Rose Bouquet",
-            price: 250.00,
-            image: "https://images.squarespace-cdn.com/content/v1/624b503a3a6154640a151782/1649102925238-QNHQ6YQJCBM14R6D5KXB/Florist0173.jpg?format=1500w",
-            variants: ["Crimson Red", "Deep Pink", "White Roses"],
-            category: "best-seller"
-        },
-        {
-            id: 2,
-            name: "Hand-Tied Wildflower Bunch",
-            price: 75.00,
-            image: "https://highlandmoss.com/wp-content/uploads/2025/02/rustic-dried-bouquet.jpg",
-            variants: ["Spring Mix", "Pastel Shades"],
-            category: "best-seller"
-        },
-        {
-            id: 3,
-            name: "Golden Sunflower Bouquet",
-            price: 120.00,
-            image: "https://heartthorn.com/cdn/shop/products/EternalSunshineSunflowerBouquet2.jpg?v=1631295500",
-            variants: [],
-            category: "best-seller"
-        },
-        {
-            id: 4,
-            name: "Silk Orchid Arrangement",
-            price: 95.00,
-            image: "https://images.squarespace-cdn.com/content/v1/624b503a3a6154640a151782/1649102925253-KFJ38D7HG4B29XFG0WFC/Florist0213%281%29.jpg?format=1500w",
-            variants: ["Ivory White", "Royal Purple"],
-            category: "all"
-        },
-        {
-            id: 5,
-            name: "Silver Lily Bouquet",
-            price: 150.00,
-            image: "https://thebridesbouquet.co.uk/wp-content/uploads/2022/01/artificial-silver-grey-bridesmaid-boquuet-with-lily-of-the-valley-and-calla-lilies.jpg",
-            variants: [],
-            category: "all"
-        }
-    ];
 
     // --- DOM Elements ---
     const bestSellerContainer = document.getElementById('best-seller-container');
@@ -86,6 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
     let currentModalProduct = null;
     let productToEditId = null;
+    let ignoreCartOverlayClick = false; // Add this near your other state variables
 
     // --- Utility Functions ---
     function saveProductsToLocalStorage() {
@@ -308,6 +365,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.body.addEventListener('click', (e) => {
         if (cartOverlay.style.display === 'block' && !cartSidebar.contains(e.target) && e.target !== cartIcon && !cartIcon.contains(e.target)) {
+            if (ignoreCartOverlayClick) return; // <-- Add this line
             cartSidebar.classList.remove('active');
             setTimeout(() => cartOverlay.style.display = 'none', 300);
         }
@@ -355,6 +413,14 @@ document.addEventListener('DOMContentLoaded', () => {
             closeAllModals();
             cartOverlay.style.display = 'block';
             setTimeout(() => cartSidebar.classList.add('active'), 10);
+
+            // Prevent overlay click from closing sidebar for 2 seconds
+            ignoreCartOverlayClick = true;
+            setTimeout(() => {
+                cartSidebar.classList.remove('active');
+                setTimeout(() => cartOverlay.style.display = 'none', 300);
+                ignoreCartOverlayClick = false;
+            }, 2000);
         }
     });
 
